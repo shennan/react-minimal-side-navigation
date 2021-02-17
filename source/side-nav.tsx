@@ -26,12 +26,14 @@ export type SideNavProps = {
   items: NavItemProps[];
   activeItemId: string;
   onSelect?: ({itemId}: {itemId: string}) => void;
+  onExpandableSelect?: ({itemId}: {itemId: string}) => void;
 };
 
 const Navigation: React.FC<SideNavProps> = ({
   activeItemId,
   onSelect,
   items,
+  onExpandableSelect
 }) => {
   const [activeSubNav, setActiveSubNav] = useState({
     expanded: true,
@@ -72,6 +74,9 @@ const Navigation: React.FC<SideNavProps> = ({
         expanded: true,
         selectedId: item.itemId,
       });
+    }
+    if (onExpandableSelect) {
+      onExpandableSelect({itemId: item.itemId})
     }
   }
 
