@@ -33,7 +33,7 @@ const Navigation: React.FC<SideNavProps> = ({
   activeItemId,
   onSelect,
   items,
-  onExpandableSelect
+  onExpandableSelect,
 }) => {
   const [activeSubNav, setActiveSubNav] = useState({
     expanded: true,
@@ -76,7 +76,7 @@ const Navigation: React.FC<SideNavProps> = ({
       });
     }
     if (onExpandableSelect) {
-      onExpandableSelect({itemId: item.itemId})
+      onExpandableSelect({itemId: item.itemId});
     }
   }
 
